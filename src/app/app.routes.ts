@@ -1,14 +1,21 @@
 import { Routes } from '@angular/router';
-import { Login } from './features/auth/login/login';
-import { Register } from './features/auth/register/register';
 
 export const routes: Routes = [
   {
     path: 'login',
-    component: Login,
+    loadComponent: () => import('./features/auth/login/login').then(m => m.Login)
   },
   {
     path: 'register',
-    component: Register,
+    loadComponent: () => import('./features/auth/register/register').then(m => m.Register)
+  },
+  {
+    path: '',
+    loadComponent: () =>
+      import('./features/home/home').then((m) => m.Home)
+  },
+  {
+    path: '**',
+    redirectTo: '',
   },
 ];
