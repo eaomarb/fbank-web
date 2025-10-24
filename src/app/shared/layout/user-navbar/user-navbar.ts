@@ -1,11 +1,10 @@
 import { Component } from '@angular/core';
-import { Footer } from "../footer/footer";
-import { Router, RouterLink } from '@angular/router';
+import { Router } from '@angular/router';
 import { Auth } from '../../../core/services/auth';
 
 @Component({
   selector: 'user-navbar',
-  imports: [Footer, RouterLink],
+  imports: [],
   templateUrl: './user-navbar.html',
   styleUrl: './user-navbar.css'
 })

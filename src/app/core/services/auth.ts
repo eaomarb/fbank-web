@@ -25,9 +25,9 @@ export class Auth {
   }
 
   private getToken(): string | null {
-    if (typeof window === 'undefined') {
+    if(typeof window !== 'undefined'){
       return localStorage.getItem(this.tokenKey);
-    } else {
+    }else {
       return null;
     }
   }
@@ -45,6 +45,6 @@ export class Auth {
 
   logout(): void {
     localStorage.removeItem(this.tokenKey);
-    this.router.navigate(['/'])
+    this.router.navigate(['/login'])
   }
 }
