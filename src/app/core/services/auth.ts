@@ -2,7 +2,6 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable, tap } from 'rxjs';
-import { environment } from '../../../environments/environment.development';
 
 @Injectable({
   providedIn: 'root'
@@ -26,7 +25,11 @@ export class Auth {
   }
 
   private getToken(): string | null {
-    return localStorage.getItem(this.tokenKey);
+    if (typeof window === 'undefined') {
+      return localStorage.getItem(this.tokenKey);
+    } else {
+      return null;
+    }
   }
 
   isAuthenticated(): boolean {
