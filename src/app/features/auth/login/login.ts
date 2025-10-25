@@ -21,9 +21,7 @@ export class Login {
   }>;
 
 
-  constructor(private auth: Auth, private router: Router) {
-
-  }
+  constructor(private auth: Auth, private router: Router) {}
 
   login(): void {
     const { email, password } = this.loginForm.getRawValue();

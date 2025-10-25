@@ -7,11 +7,11 @@
         </div>
 
         <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-            <form action="#" method="POST" class="space-y-6">
+            <form [formGroup]="registerForm" (ngSubmit)="register()" class="space-y-6">
                 <div>
                     <label for="email" class="block text-sm font-medium text-black">Email address</label>
                     <div class="mt-2">
-                        <input id="email" type="email" name="email" required class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-black
+                        <input id="email" type="email" name="email" formControlName="email" required class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-black
                             placeholder:text-gray-500 outline-1 -outline-offset-1 outline-gray-300 focus:outline-2 focus:-outline-offset-2
                             focus:outline-black sm:text-sm" />
                     </div>
@@ -20,7 +20,7 @@
                 <div>
                     <label for="displayName" class="block text-sm font-medium text-black">Display Name</label>
                     <div class="mt-2">
-                        <input id="displayName" type="text" name="displayName" required
+                        <input id="displayName" type="text" name="displayName" required formControlName="username"
                             class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-black
                         placeholder:text-gray-500 outline-1 -outline-offset-1 outline-gray-300 focus:outline-2 focus:-outline-offset-2 focus:outline-black sm:text-sm" />
                     </div>
@@ -29,7 +29,16 @@
                 <div>
                     <label for="password" class="block text-sm font-medium text-black">Password</label>
                     <div class="mt-2">
-                        <input id="password" type="password" name="password" required
+                        <input id="password" type="password" name="password" required formControlName="password"
+                            class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-black placeholder:text-gray-500
+                            outline-1 -outline-offset-1 outline-gray-300 focus:outline-2 focus:-outline-offset-2 focus:outline-black sm:text-sm" />
+                    </div>
+                </div>
+
+                <div>
+                    <label for="repeatPassword" class="block text-sm font-medium text-black">Repeat the password</label>
+                    <div class="mt-2">
+                        <input id="repeatPassword" type="password" name="repeatPassword" required formControlName="repeatPassword"
                             class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-black placeholder:text-gray-500
                             outline-1 -outline-offset-1 outline-gray-300 focus:outline-2 focus:-outline-offset-2 focus:outline-black sm:text-sm" />
                     </div>
