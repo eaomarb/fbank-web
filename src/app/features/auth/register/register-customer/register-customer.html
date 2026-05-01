@@ -1,0 +1,139 @@
+<div class="flex flex-col min-h-screen">
+    <home-navbar />
+
+    <main class="grow flex flex-col justify-center px-6 py-12">
+        <div class="sm:mx-auto sm:w-full sm:max-w-2xl">
+            <h2 class="text-center text-2xl font-bold text-black">Create your customer profile</h2>
+        </div>
+
+        <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-2xl">
+            @if (errorMessage()) {
+            <div class="mb-6 p-4 bg-red-50 border border-red-500 text-red-700">
+                <p class="font-bold">Error</p>
+                <p>{{ errorMessage() }}</p>
+            </div>
+            }
+
+            <form [formGroup]="registerCustomerForm" (ngSubmit)="registerCustomer()" class="space-y-6">
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-16 gap-y-2">
+                    <div>
+                        <label for="name" class="block text-sm font-medium text-black">First Name</label>
+                        <div class="mt-2">
+                            <input id="name" type="text" formControlName="name" required [class.outline-red-500]="isFieldInvalid('name')"
+                                class="block w-full bg-white px-3 py-1.5 text-base text-black placeholder:text-gray-500
+                                outline-1 -outline-offset-1 outline-gray-300 focus:outline-2 focus:-outline-offset-2 focus:outline-black sm:text-sm" />
+                        </div>
+                    </div>
+                    <div>
+                        <label for="lastName" class="block text-sm font-medium text-black">Last Name</label>
+                        <div class="mt-2">
+                            <input id="lastName" type="text" formControlName="lastName" required [class.outline-red-500]="isFieldInvalid('lastName')"
+                                class="block w-full bg-white px-3 py-1.5 text-base text-black placeholder:text-gray-500
+                                outline-1 -outline-offset-1 outline-gray-300 focus:outline-2 focus:-outline-offset-2 focus:outline-black sm:text-sm" />
+                        </div>
+                    </div>
+                    <div>
+                        <label for="documentId" class="block text-sm font-medium text-black">Document ID</label>
+                        <div class="mt-2">
+                            <input id="documentId" type="text" formControlName="documentId" required [class.outline-red-500]="isFieldInvalid('documentId')"
+                                class="block w-full bg-white px-3 py-1.5 text-base text-black placeholder:text-gray-500
+                                outline-1 -outline-offset-1 outline-gray-300 focus:outline-2 focus:-outline-offset-2 focus:outline-black sm:text-sm" />
+                        </div>
+                    </div>
+                    <div>
+                        <label for="phone" class="block text-sm font-medium text-black">Phone</label>
+                        <div class="mt-2">
+                            <input id="phone" type="tel" formControlName="phone" required [class.outline-red-500]="isFieldInvalid('phone')"
+                                class="block w-full bg-white px-3 py-1.5 text-base text-black placeholder:text-gray-500
+                                outline-1 -outline-offset-1 outline-gray-300 focus:outline-2 focus:-outline-offset-2 focus:outline-black sm:text-sm" />
+                        </div>
+
+                    </div>
+                    <div>
+                        <label for="age" class="block text-sm font-medium text-black">Age (min 18)</label>
+                        <div class="mt-2">
+                            <input id="age" type="number" formControlName="age" required [class.outline-red-500]="isFieldInvalid('age')"
+                                class="w-1/4 bg-white px-3 py-1.5 text-base text-black placeholder:text-gray-500
+                                outline-1 -outline-offset-1 outline-gray-300 focus:outline-2 focus:-outline-offset-2 focus:outline-black sm:text-sm" />
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-semibold text-black">Address</h3>
+                </div>
+
+                <div class="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-x-16 gap-y-2">
+                    <div>
+                        <label for="streetName" class="block text-sm font-medium text-black">Street Name</label>
+                        <div class="mt-2">
+                            <input id="streetName" type="text" formControlName="streetName" required [class.outline-red-500]="isFieldInvalid('streetName')"
+                                class="block w-full bg-white px-3 py-1.5 text-base text-black placeholder:text-gray-500
+                                outline-1 -outline-offset-1 outline-gray-300 focus:outline-2 focus:-outline-offset-2 focus:outline-black sm:text-sm" />
+                        </div>
+                    </div>
+                    <div>
+                        <label for="streetNumber" class="block text-sm font-medium text-black">Street Number</label>
+                        <div class="mt-2">
+                            <input id="streetNumber" type="text" formControlName="streetNumber" required [class.outline-red-500]="isFieldInvalid('streetNumber')"
+                                class="block w-full bg-white px-3 py-1.5 text-base text-black placeholder:text-gray-500
+                                outline-1 -outline-offset-1 outline-gray-300 focus:outline-2 focus:-outline-offset-2 focus:outline-black sm:text-sm" />
+                        </div>
+                    </div>
+                    <div>
+                        <label for="floor" class="block text-sm font-medium text-black">Floor</label>
+                        <div class="mt-2">
+                            <input id="floor" type="text" formControlName="floor"
+                                class="block w-full bg-white px-3 py-1.5 text-base text-black placeholder:text-gray-500
+                                outline-1 -outline-offset-1 outline-gray-300 focus:outline-2 focus:-outline-offset-2 focus:outline-black sm:text-sm" />
+                        </div>
+                    </div>
+                    <div>
+                        <label for="door" class="block text-sm font-medium text-black">Door</label>
+                        <div class="mt-2">
+                            <input id="door" type="text" formControlName="door"
+                                class="block w-full bg-white px-3 py-1.5 text-base text-black placeholder:text-gray-500
+                                outline-1 -outline-offset-1 outline-gray-300 focus:outline-2 focus:-outline-offset-2 focus:outline-black sm:text-sm" />
+                        </div>
+                    </div>
+                    <div>
+                        <label for="province" class="block text-sm font-medium text-black">Province</label>
+                        <div class="mt-2">
+                            <input id="province" type="text" formControlName="province" required [class.outline-red-500]="isFieldInvalid('province')"
+                                class="block w-full bg-white px-3 py-1.5 text-base text-black placeholder:text-gray-500
+                                outline-1 -outline-offset-1 outline-gray-300 focus:outline-2 focus:-outline-offset-2 focus:outline-black sm:text-sm" />
+                        </div>
+                        
+                    </div>
+                    <div>
+                        <label for="city" class="block text-sm font-medium text-black">City</label>
+                        <div class="mt-2">
+                            <input id="city" type="text" formControlName="city" required [class.outline-red-500]="isFieldInvalid('city')"
+                                class="block w-full bg-white px-3 py-1.5 text-base text-black placeholder:text-gray-500
+                                outline-1 -outline-offset-1 outline-gray-300 focus:outline-2 focus:-outline-offset-2 focus:outline-black sm:text-sm" />
+                        </div>
+                    </div>
+                    <div>
+                        <label for="postalCode" class="block text-sm font-medium text-black">Postal Code</label>
+                        <div class="mt-2">
+                            <input id="postalCode" type="text" formControlName="postalCode" required [class.outline-red-500]="isFieldInvalid('postalCode')"
+                                class="w-1/2 bg-white px-3 py-1.5 text-base text-black placeholder:text-gray-500
+                                outline-1 -outline-offset-1 outline-gray-300 focus:outline-2 focus:-outline-offset-2 focus:outline-black sm:text-sm" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex justify-center items-center">
+                    <button type="submit" class="bg-black px-3 py-1.5 text-sm font-semibold text-white shadow-xs
+        hover:bg-neutral-900 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black">
+                        Register
+                    </button>
+                </div>
+
+            </form>
+        </div>
+    </main>
+
+    <app-footer />
+</div>

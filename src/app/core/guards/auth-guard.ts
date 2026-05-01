@@ -8,7 +8,15 @@ export const AuthGuard: CanActivateFn = (route, state) => {
 
   if (!authService.isAuthenticated()) {
     return router.navigate(['/login']);
-  } else {
-    return true;
   }
+
+  // redirect to customer register if the user doesn't have a customer created yet
+  if (authService.currentUser()?.role === 'CUSTOMER' && !authService.customer()) {
+    // only redirect if we are not already going to the registration page
+    if (state.url !== '/register-customer') {
+      return router.navigate(['/register-customer']);
+    }
+  }
+
+  return true;
 };

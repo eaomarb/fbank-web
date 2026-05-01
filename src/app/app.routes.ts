@@ -10,7 +10,11 @@ export const routes: Routes = [
   },
   {
     path: 'register',
-    loadComponent: () => import('./features/auth/register/register').then(m => m.Register)
+    loadComponent: () => import('./features/auth/register/register-user/register-user').then(m => m.RegisterUser)
+  },
+  {
+    path: 'register-customer',
+    loadComponent: () => import('./features/auth/register/register-customer/register-customer').then(m => m.RegisterCustomer)
   },
   {
     path: '',

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { Auth } from '../../../core/services/auth';
 
@@ -6,10 +6,14 @@ import { Auth } from '../../../core/services/auth';
   selector: 'user-navbar',
   imports: [],
   templateUrl: './user-navbar.html',
-  styleUrl: './user-navbar.css'
+  styleUrl: './user-navbar.css',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class UserNavbar {
-  constructor(private auth: Auth, private router: Router) { }
+  private readonly auth = inject(Auth);
+  private readonly router = inject(Router);
+
+  readonly currentUser = this.auth.currentUser;
 
   logout(): void {
     this.auth.logout();

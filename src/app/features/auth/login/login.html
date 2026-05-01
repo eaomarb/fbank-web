@@ -1,7 +1,7 @@
 <div class="flex flex-col min-h-screen">
     <home-navbar />
 
-    <main class="flex-grow flex flex-col justify-center px-6 py-12 lg:px-8">
+    <main class="grow flex flex-col justify-center px-6 py-12 lg:px-8">
         <div class="sm:mx-auto sm:w-full sm:max-w-sm">
             <h2 class="text-center text-2xl/9 font-bold tracking-tight text-black">Login to your account</h2>
         </div>
@@ -12,7 +12,7 @@
                     <label for="email" class="block text-sm/6 font-medium text-black">Email address</label>
                     <div class="mt-2">
                         <input id="email" type="email" name="email" required formControlName="email"
-                            class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-black placeholder:text-gray-500 outline-1
+                            class="block w-full bg-white px-3 py-1.5 text-base text-black placeholder:text-gray-500 outline-1
                         -outline-offset-1 outline-gray-300 focus:outline-2 focus:-outline-offset-2 focus:outline-black sm:text-sm/6" />
                     </div>
                 </div>
@@ -23,7 +23,7 @@
                     </div>
                     <div class="mt-2">
                         <input id="password" type="password" name="password" required formControlName="password"
-                            class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-black placeholder:text-gray-500
+                            class="block w-full bg-white px-3 py-1.5 text-base text-black placeholder:text-gray-500
                         outline-1 -outline-offset-1 outline-gray-300 focus:outline-2 focus:-outline-offset-2 focus:outline-black sm:text-sm/6" />
                     </div>
                 </div>
@@ -35,7 +35,7 @@
                 </div>
 
                 <div>
-                    <button type="submit" class="flex w-full justify-center rounded-md bg-black px-3 py-1.5 text-sm/6 font-semibold text-white shadow-xs hover:bg-neutral-900
+                    <button type="submit" class="flex w-full justify-center bg-black px-3 py-1.5 text-sm/6 font-semibold text-white shadow-xs hover:bg-neutral-900
                     focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black">Login
                     </button>
                 </div>
